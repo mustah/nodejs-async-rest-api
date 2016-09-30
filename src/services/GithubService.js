@@ -1,5 +1,3 @@
-'use strict';
-
 import fetch from 'node-fetch';
 
 const apiEndpoint = 'https://api.github.com';

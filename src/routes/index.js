@@ -1,8 +1,8 @@
-'use strict';
+import { Router } from 'express';
 
-import express from 'express';
-
-export default express.Router()
+const index = Router()
   .get('/', (req, res) => {
     res.send({greeting: 'Welcome to your first express backend project!'});
   });
+
+export default index;
