@@ -2,10 +2,10 @@ import { Router } from 'express';
 import { Observable } from 'rxjs/Rx';
 import { fetchGitHubUser } from '../services/GithubService';
 
-const router = Router();
+export const users = Router();
 
-router.get('/:username', (req, res) => {
-  const {username} = req.params;
+users.get('/:username', (req, res) => {
+  const { username } = req.params;
 
   Observable.fromPromise(fetchGitHubUser(username))
     .map(user => ({
@@ -13,8 +13,8 @@ router.get('/:username', (req, res) => {
       email: user.email,
       company: user.company
     }))
-    .subscribe(users => res.send(users),
-               error => res.status(500).send(error));
+    .subscribe(
+      users => res.send(users),
+      error => res.status(500).send(error)
+    );
 });
-
-export default router;

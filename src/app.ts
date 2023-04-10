@@ -1,7 +1,6 @@
 import express from 'express';
-
-import users from './routes/users';
-import index from './routes/index';
+import { index } from './routes';
+import { users } from './routes/users';
 
 const app = express();
 
